@@ -37,6 +37,29 @@
             font-size: 14px;
             border-top: 1px solid #ecf0f1;
         }
+        .card-description {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+            line-height: 1.5;
+            max-height: 100px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        .card-description::-webkit-scrollbar {
+            width: 4px;
+        }
+        .card-description::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .card-description::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .card-description::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
     </style>
 </head>
 <body>
@@ -49,11 +72,12 @@
                 <h2 class="section-title">Classrooms</h2>
                 <div class="row g-4">
                     <div class="col-md-6">
-                        <div class="card room-card" data-room="M" data-name="First Years Classroom">
-                            <img src="{{ url_for('static', filename='thumbnails/M.jpg') }}" class="room-thumbnail" alt="M - First Years Classroom">
+                        <div class="card room-card" data-room="M302" data-name="First Years Classroom">
+                            <img src="{{ url_for('static', filename='thumbnails/M302.jpg') }}" class="room-thumbnail" alt="M302 - First Years Classroom">
                             <div class="card-body">
                                 <h5 class="card-title">M302</h5>
                                 <p class="card-text">First Years Classroom</p>
+                                <p class="card-description">{{ room_descriptions['M302'] }}</p>
                             </div>
                         </div>
                     </div>
@@ -63,6 +87,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">IT109</h5>
                                 <p class="card-text">Second Years Classroom</p>
+                                <p class="card-description">{{ room_descriptions['IT109'] }}</p>
                             </div>
                         </div>
                     </div>
@@ -72,6 +97,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">IT110</h5>
                                 <p class="card-text">Third Years Classroom</p>
+                                <p class="card-description">{{ room_descriptions['IT110'] }}</p>
                             </div>
                         </div>
                     </div>
@@ -81,6 +107,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">IT315</h5>
                                 <p class="card-text">Final Years Classroom</p>
+                                <p class="card-description">{{ room_descriptions['IT315'] }}</p>
                             </div>
                         </div>
                     </div>
@@ -97,6 +124,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">M114</h5>
                                 <p class="card-text">Laboratory</p>
+                                <p class="card-description">{{ room_descriptions['M114'] }}</p>
                             </div>
                         </div>
                     </div>
@@ -106,6 +134,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">M139</h5>
                                 <p class="card-text">Laboratory</p>
+                                <p class="card-description">{{ room_descriptions['M139'] }}</p>
                             </div>
                         </div>
                     </div>
@@ -130,7 +159,7 @@
                 <div class="modal-body">
                     <img src="" class="modal-image mb-3" alt="">
                     <p class="room-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        <!-- Description will be populated by JavaScript -->
                     </p>
                     <div class="form-check form-switch mb-3">
                         <input class="form-check-input" type="checkbox" id="resolutionToggle">
@@ -148,9 +177,13 @@
             const roomModal = new bootstrap.Modal(document.getElementById('roomModal'));
             const modalTitle = document.querySelector('.modal-title');
             const modalImage = document.querySelector('.modal-image');
+            const modalDescription = document.querySelector('.room-description');
             const resolutionToggle = document.getElementById('resolutionToggle');
             const startVRButton = document.getElementById('startVR');
             let currentRoom = '';
+            
+            // Room descriptions from Flask
+            const roomDescriptions = JSON.parse('{{ room_descriptions|tojson|safe }}');
 
             // Add click event to all room cards
             document.querySelectorAll('.room-card').forEach(card => {
@@ -158,9 +191,11 @@
                     currentRoom = this.dataset.room;
                     const roomName = this.dataset.name;
                     const imageSrc = this.querySelector('img').src;
+                    const description = this.querySelector('.card-description').textContent;
                     
                     modalTitle.textContent = roomName;
                     modalImage.src = imageSrc;
+                    modalDescription.textContent = description;
                     roomModal.show();
                 });
             });
