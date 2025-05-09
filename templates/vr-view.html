@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VR View - {{ room }}</title>
+    <title>Library VR View - {{ room }}</title>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <style>
         body {
@@ -66,6 +66,23 @@
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        .description-bubble {
+            position: fixed;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            max-width: 80%;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            line-height: 1.5;
+        }
         .vr-instructions {
             position: fixed;
             bottom: 20px;
@@ -107,6 +124,11 @@
                 font-size: 12px;
                 max-width: 150px;
             }
+            .description-bubble {
+                bottom: 60px;
+                padding: 10px 15px;
+                font-size: 12px;
+            }
             .vr-instructions.mobile {
                 display: block;
             }
@@ -134,6 +156,11 @@
                 font-size: 11px;
                 max-width: 120px;
             }
+            .description-bubble {
+                bottom: 50px;
+                padding: 8px 12px;
+                font-size: 11px;
+            }
             .vr-instructions {
                 bottom: 10px;
                 padding: 8px 15px;
@@ -152,6 +179,9 @@
             .credit-bubble {
                 top: 5px;
             }
+            .description-bubble {
+                bottom: 40px;
+            }
             .vr-instructions {
                 bottom: 5px;
             }
@@ -159,18 +189,18 @@
     </style>
 </head>
 <body>
-    <a href="/" class="back-button">← Back</a>
+    <a href="/" class="back-button">← Back to Library</a>
     <div class="controls">
-        <span>Room: {{ room }}</span>
+        <span>Location: {{ room }}</span>
         <span>Resolution: {{ res }}</span>
     </div>
     
     <div class="credit-bubble">
-        {% if room == 'IT109' %}
-        3D modelling by<br>Shakthi Nandan P
-        {% else %}
         360 Photography by<br>Shakthi Nandan P
-        {% endif %}
+    </div>
+    
+    <div class="description-bubble">
+        {{ description }}
     </div>
     
     <div class="vr-instructions desktop">
@@ -197,6 +227,12 @@
                 el.style.transition = 'opacity 1s ease';
             });
         }, 10000);
+
+        // Hide description after 20 seconds
+        setTimeout(function() {
+            document.querySelector('.description-bubble').style.opacity = '0';
+            document.querySelector('.description-bubble').style.transition = 'opacity 1s ease';
+        }, 20000);
     </script>
 </body>
-</html> 
+</html>

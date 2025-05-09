@@ -39,6 +39,6 @@ def generate_low_res_images(source_folder, output_folder, max_size=(2048, 1024))
 
 # Example usage:
 if __name__ == "__main__":
-    high_res_folder = 'static/'
-    low_res_folder = 'static/images/low_res'
+    high_res_folder = 'static/vr/high'
+    low_res_folder = 'static/images/low'
     generate_low_res_images(high_res_folder, low_res_folder)

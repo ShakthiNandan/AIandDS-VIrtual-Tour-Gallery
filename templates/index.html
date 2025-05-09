@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>AI&DS Virtual Tour</title>
+    <title>CIT College Library Virtual Tour</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -180,77 +180,77 @@
 </head>
 <body>
     <div class="container py-4 py-md-5">
-        <h1 class="page-title">AI&DS Virtual Tour</h1>
+        <h1 class="page-title">CIT College Library Virtual Tour</h1>
         
         <div class="row">
-            <!-- Classrooms Section -->
+            <!-- Reading Areas Section -->
             <div class="col-md-6 mb-4">
-                <h2 class="section-title">Classrooms</h2>
+                <h2 class="section-title">Reading Areas</h2>
                 <div class="row g-3 g-md-4">
                     <div class="col-md-6">
-                        <div class="card room-card" data-room="M302" data-name="First Years Classroom">
-                            <img src="{{ url_for('static', filename='thumbnails/M302.jpg') }}" class="room-thumbnail" alt="M302 - First Years Classroom">
+                        <div class="card room-card" data-room="Library1" data-name="Main Reading Area">
+                            <img src="{{ url_for('static', filename='images/low/Library1.jpg') }}" class="room-thumbnail" alt="Main Reading Area">
                             <div class="card-body">
-                                <h5 class="card-title">M302</h5>
-                                <p class="card-text">First Years Classroom</p>
-                                <p class="card-description">{{ room_descriptions['M302'] }}</p>
+                                <h5 class="card-title">Main Reading Area</h5>
+                                <p class="card-text">Central Study Space</p>
+                                <p class="card-description">{{ room_descriptions['Library1'] }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card room-card" data-room="IT109" data-name="Second Years Classroom">
-                            <img src="{{ url_for('static', filename='thumbnails/IT109.jpg') }}" class="room-thumbnail" alt="IT109 - Second Years Classroom">
+                        <div class="card room-card" data-room="Library2" data-name="Book Collection">
+                            <img src="{{ url_for('static', filename='images/low/Library2.jpg') }}" class="room-thumbnail" alt="Book Collection Area">
                             <div class="card-body">
-                                <h5 class="card-title">IT109</h5>
-                                <p class="card-text">Second Years Classroom</p>
-                                <p class="card-description">{{ room_descriptions['IT109'] }}</p>
+                                <h5 class="card-title">Book Collection</h5>
+                                <p class="card-text">Reference Materials</p>
+                                <p class="card-description">{{ room_descriptions['Library2'] }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card room-card" data-room="IT110" data-name="Third Years Classroom">
-                            <img src="{{ url_for('static', filename='thumbnails/IT110.jpg') }}" class="room-thumbnail" alt="IT110 - Third Years Classroom">
+                        <div class="card room-card" data-room="Library3" data-name="Quiet Study Zone">
+                            <img src="{{ url_for('static', filename='images/low/Library3.jpg') }}" class="room-thumbnail" alt="Quiet Study Zone">
                             <div class="card-body">
-                                <h5 class="card-title">IT110</h5>
-                                <p class="card-text">Third Years Classroom</p>
-                                <p class="card-description">{{ room_descriptions['IT110'] }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card room-card" data-room="IT315" data-name="Final Years Classroom">
-                            <img src="{{ url_for('static', filename='thumbnails/IT315.jpg') }}" class="room-thumbnail" alt="IT315 - Final Years Classroom">
-                            <div class="card-body">
-                                <h5 class="card-title">IT315</h5>
-                                <p class="card-text">Final Years Classroom</p>
-                                <p class="card-description">{{ room_descriptions['IT315'] }}</p>
+                                <h5 class="card-title">Quiet Study Zone</h5>
+                                <p class="card-text">Silent Study Area</p>
+                                <p class="card-description">{{ room_descriptions['Library3'] }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Laboratories Section -->
+            <!-- Service Areas Section -->
             <div class="col-md-6 mb-4">
-                <h2 class="section-title">Laboratories</h2>
+                <h2 class="section-title">Service Areas</h2>
                 <div class="row g-3 g-md-4">
                     <div class="col-md-6">
-                        <div class="card room-card" data-room="M114" data-name="Laboratory M114">
-                            <img src="{{ url_for('static', filename='thumbnails/M114.jpg') }}" class="room-thumbnail" alt="M114 Laboratory">
+                        <div class="card room-card" data-room="E Learning Center" data-name="E-Learning Center">
+                            <img src="{{ url_for('static', filename='images/low/E Learning Center.jpg') }}" class="room-thumbnail" alt="E-Learning Center">
                             <div class="card-body">
-                                <h5 class="card-title">M114</h5>
-                                <p class="card-text">Laboratory</p>
-                                <p class="card-description">{{ room_descriptions['M114'] }}</p>
+                                <h5 class="card-title">E-Learning Center</h5>
+                                <p class="card-text">Digital Resources</p>
+                                <p class="card-description">{{ room_descriptions['E Learning Center'] }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card room-card" data-room="M139" data-name="Laboratory M139">
-                            <img src="{{ url_for('static', filename='thumbnails/M139.jpg') }}" class="room-thumbnail" alt="M139 Laboratory">
+                        <div class="card room-card" data-room="Librarian Desk" data-name="Librarian Desk">
+                            <img src="{{ url_for('static', filename='images/low/Librarian Desk.jpg') }}" class="room-thumbnail" alt="Librarian Desk">
                             <div class="card-body">
-                                <h5 class="card-title">M139</h5>
-                                <p class="card-text">Laboratory</p>
-                                <p class="card-description">{{ room_descriptions['M139'] }}</p>
+                                <h5 class="card-title">Librarian Desk</h5>
+                                <p class="card-text">Information & Assistance</p>
+                                <p class="card-description">{{ room_descriptions['Librarian Desk'] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card room-card" data-room="Librarian Desks" data-name="Administration Area">
+                            <img src="{{ url_for('static', filename='images/low/Librarian Desks.jpg') }}" class="room-thumbnail" alt="Administration Area">
+                            <div class="card-body">
+                                <h5 class="card-title">Administration Area</h5>
+                                <p class="card-text">Library Management</p>
+                                <p class="card-description">{{ room_descriptions['Librarian Desks'] }}</p>
                             </div>
                         </div>
                     </div>
@@ -337,4 +337,4 @@
         });
     </script>
 </body>
-</html> 
+</html>

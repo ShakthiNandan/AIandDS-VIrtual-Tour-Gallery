@@ -4,12 +4,12 @@ app = Flask(__name__)
 
 # Room descriptions
 ROOM_DESCRIPTIONS = {
-    'M302': 'The First Years Classroom (M302) is a spacious learning environment equipped with modern teaching facilities. This classroom serves as the primary learning space for first-year AI&DS students, featuring comfortable seating arrangements and advanced audio-visual systems to enhance the learning experience.',
-    'IT109': 'The Second Years Classroom (IT109) is designed to support the specialized curriculum of second-year AI&DS students. With its ergonomic design and state-of-the-art teaching aids, this classroom provides an optimal environment for both theoretical learning and practical demonstrations.',
-    'IT110': 'The Third Years Classroom (IT110) offers an advanced learning environment tailored to the complex subjects studied by third-year AI&DS students. Equipped with specialized software and hardware resources, this classroom facilitates both individual and group learning activities.',
-    'IT315': 'The Final Years Classroom (IT315) is a premium learning space designed for the advanced coursework of final-year AI&DS students. This classroom features cutting-edge technology and flexible seating arrangements to support project-based learning and collaborative research activities.',
-    'M114': 'Laboratory M114 is a specialized facility equipped with high-performance computing resources for AI&DS students. This lab provides access to advanced software tools and hardware necessary for data analysis, machine learning experiments, and AI model development.',
-    'M139': 'Laboratory M139 serves as a dedicated space for hands-on experimentation in AI&DS. Equipped with specialized hardware and software, this lab supports students in developing and testing AI algorithms, working with large datasets, and implementing machine learning models.'
+    'Library1': 'The main reading area of the CIT College Library offers a spacious and well-lit environment for students to study and research. With comfortable seating arrangements and a peaceful atmosphere, it provides an ideal setting for academic focus and intellectual exploration.',
+    'Library2': 'This section of the CIT College Library houses an extensive collection of academic resources, including textbooks, reference materials, and journals. The well-organized shelving system makes it easy for students to locate materials related to their field of study.',
+    'Library3': 'The quiet study zone in the CIT College Library is designed for individual study and deep concentration. This area maintains a strict noise policy to ensure students can work without distractions, making it perfect for exam preparation and focused research.',
+    'E Learning Center': 'The E-Learning Center within the CIT College Library is equipped with modern computers and digital resources. This technology-enabled space allows students to access online databases, e-journals, and digital learning materials to supplement their traditional learning.',
+    'Librarian Desk': 'The Librarian\'s Desk serves as the central point for library assistance. Here, students can seek help with locating resources, checking out books, and getting guidance on research methodologies from knowledgeable library staff.',
+    'Librarian Desks': 'The administration area features multiple librarian workstations where the library staff manages the catalog system, assists with inter-library loans, and coordinates library services. This area is essential for the efficient operation of the library\'s resources and services.'
 }
 
 @app.route('/')
@@ -20,8 +20,8 @@ def index():
 def vr_view():
     room = request.args.get('room', '')
     res = request.args.get('res', 'low')
-    description = ROOM_DESCRIPTIONS.get(room, 'No description available for this room.')
+    description = ROOM_DESCRIPTIONS.get(room, 'No description available for this area.')
     return render_template('vr-view.html', room=room, res=res, description=description)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, ssl_context=('cert.pem', 'key.pem'))
