@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 # Room descriptions
 ROOM_DESCRIPTIONS = {
+    "Library Entrance": "This is the main entrance of the CIT College Library",
     'Library1': 'The main reading area of the CIT College Library offers a spacious and well-lit environment for students to study and research. With comfortable seating arrangements and a peaceful atmosphere, it provides an ideal setting for academic focus and intellectual exploration.',
     'Library2': 'This section of the CIT College Library houses an extensive collection of academic resources, including textbooks, reference materials, and journals. The well-organized shelving system makes it easy for students to locate materials related to their field of study.',
     'Library3': 'The quiet study zone in the CIT College Library is designed for individual study and deep concentration. This area maintains a strict noise policy to ensure students can work without distractions, making it perfect for exam preparation and focused research.',
